@@ -1,0 +1,7 @@
+streamlit
+pandas
+streamlit_authenticator
+psycopg2
+joblib
+st_pages
+re
