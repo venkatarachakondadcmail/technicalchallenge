@@ -21,7 +21,7 @@ def insert_mail_content(from_email, subject, message, to_email):
 
 def insert_user(login, password):
     # Insert the new user into the database
-    password = h.encrypt_password(password.upper())
+    password = h.encrypt_password(password)
     cur = connection.conn.cursor()
     cur.execute("INSERT INTO TB_USERS (login, password) VALUES (%s, %s)", (login, password))
     connection.conn.commit()

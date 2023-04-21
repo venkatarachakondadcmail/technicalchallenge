@@ -2,7 +2,7 @@ import pandas as pd
 def encrypt_password(password: str):
     password = password.upper()
     cypher = pd.read_excel('Rubrics/chyper-code.xlsx')
-    cypher= cypher[['USER TYPE', 'SYSTEM CONVERT']].astype(str)
+    cypher= cypher[['USER TYPE', 'SYSTEM CONVERT']]
     conversion_system = dict(zip(cypher['USER TYPE'], cypher['SYSTEM CONVERT']))
     encrypted_password = ''
     for char in password:
@@ -14,8 +14,9 @@ def encrypt_password(password: str):
 
 
 def decrypt_password(encrypted_password:str):
+    encrypted_password = encrypted_password.upper()
     cypher = pd.read_excel('Rubrics/chyper-code.xlsx')
-    cypher = cypher[['USER TYPE', 'SYSTEM CONVERT']].astype(str)
+    cypher = cypher[['USER TYPE', 'SYSTEM CONVERT']]
     conversion_system = dict(zip(cypher['USER TYPE'], cypher['SYSTEM CONVERT']))
     decryption_system = {v: k for k, v in conversion_system.items()}
     decrypted_password = ''
@@ -24,5 +25,4 @@ def decrypt_password(encrypted_password:str):
             decrypted_password += decryption_system[char.upper()]
         else:
             decrypted_password += char
-    print("decrypt_password",decrypt_password)
     return decrypted_password

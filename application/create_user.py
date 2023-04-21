@@ -12,7 +12,6 @@ def is_valid_email(email):
     
     # Use the re module to match the pattern with the email address
     match = re.match(pattern, email)
-    
     # If there is a match, the email address is valid
     return match is not None
 
@@ -24,7 +23,6 @@ def new_user():
     password = form.text_input("Password", type="password")
     confirm_password = form.text_input("Confirm Password", type="password")
     submit = form.form_submit_button("Create User")
-    
 
     if submit:
         # Check if the mail ID is valid

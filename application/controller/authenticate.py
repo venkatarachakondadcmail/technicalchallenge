@@ -22,7 +22,7 @@ def authenticate():
     passwords = []
     for row in results:
         usernames.append(row[0])
-        passwords.append(h.decrypt_password(row[1]).lower())
+        passwords.append(h.decrypt_password(row[1]))
 
     print(passwords)
     hashed_passwords = stauth.Hasher(passwords).generate()
